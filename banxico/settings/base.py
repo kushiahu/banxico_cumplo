@@ -20,12 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-w^2%j5(4$q7u+p6^t848e&(lixf6i@4_io9tfw#)^l_5isivz$'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+SECRET_KEY = '_b6*4^3568eb06=df0r!3ad7_#uq@vp(1&8zchspyueo1t0_vs'
 
 
 # Application definition
@@ -70,15 +65,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'banxico.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 
 # Password validation
