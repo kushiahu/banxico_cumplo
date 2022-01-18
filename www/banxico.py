@@ -3,6 +3,28 @@ from requests import RequestException
 
 
 class Banxico:
+	"""Clase para obtener listas de la serie SP68257 (udi), SF43718 (dolar).
+
+	Clase que realiza la petición para obtener dada
+	una fecha inicial, fecha finar y la serie que se requiere:
+
+		get_serie_by_range_date(serie, init_date, end_date)
+
+	Una vez obtenido la respuesta a la petición a Banxico.
+	asignamos a los atributos de instancia su respectivo valor
+		self.__graph_list = self.__get_list_data(response.json())
+		self.__data_list = self.__get_only_data(response.json())
+
+	Obtenemos las listas con sus funciones determinadas
+		obj.data_list()
+		obj.get_graph_list()
+
+	Parámetros:
+	token -- Token de Banxico
+	serie -- UDI o Dolar
+	init_date -- fecha inicial
+	end_date -- fecha final
+	"""
 
 	def __init__(self, token: str) -> None:
 		self.token = token
