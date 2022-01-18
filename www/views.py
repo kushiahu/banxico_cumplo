@@ -22,22 +22,27 @@ def api_get_data_serie(request, serie, init_date, end_date):
 	status_code, msg = 404, 'Has not been removed!'
 	avg_data, min_data, max_data = 0, 0, 0
 	average = lambda serie: sum(serie) / len(serie)
-	serie_rsl, graph_data = [], []
+	data_list, graph_data = [], []
 
 	banxico = Banxico(TOKEN)
-	serie_rsl, graph_data = banxico.get_serie_by_range_date(SERIES[serie], init_date, end_date)
+	banxico.get_serie_by_range_date(SERIES[serie], init_date, end_date)
 
-	if serie_rsl:
-		avg_data = average(serie_rsl)
-		min_data = min(serie_rsl)
-		max_data = max(serie_rsl)
+	data_list = banxico.get_data_list()
+	graph_data = banxico.get_graph_list()
+
+	print(data_list)
+
+	if data_list:
+		avg_data = average(data_list)
+		min_data = min(data_list)
+		max_data = max(data_list)
 
 		status_code = 202
 		msg = 'Not problem with data!'
 
 	return JsonResponse({
 		'status_code': status_code, 'msg': msg,
-		'serie_rsl': serie_rsl, 'graph_data': graph_data,
+		'data_list': data_list, 'graph_data': graph_data,
 		'min_data': min_data, 'max_data': max_data,
 		'avg_data': avg_data,
 	})
