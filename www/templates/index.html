@@ -5,37 +5,52 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Desafío Cumplo.mx</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 </head>
 <body>
+	<div class="container" style="margin-top: 20px">
+		<div class="columns">
+			<div class="column">
+				<form style="max-width:200px">
+					<div class="columns">
+						<div class="field column">
+						  <label class="label">Serie</label>
+						  <div class="control">
+						    <div class="select" >
+						      <select name="select" id="udis_dolar">
+						        <option value="udis" selected>UDI's</option>
+							  		<option value="dolar">Dolar</option>
+						      </select>
+						    </div>
+						  </div>
+						</div>
+						<div class="field column">
+						  <label class="label">Fecha inicio:</label>
+						  <div class="control">
+						    <input class="input" type="date" id="start" name="date-start">
+						  </div>
+						</div>
+						<div class="field column">
+						  <label class="label">Fecha inicio:</label>
+						  <div class="control">
+						    <input class="input" type="date" id="end" name="date-end">
+						  </div>
+						</div>				
+					</div>					
+					<a href="#" class="button" onclick="get_data_banxico()">Mostrar datos</a>	
+				</form>
+			</div>
+			<div class="column">
+				<ul>
+					<li><strong>Promedio:</strong> <span id="avg">0</span></li>
+					<li><strong>Mínimo:</strong> <span id="min">0</span></li>
+					<li><strong>Máximo:</strong> <span id="max">0</span></li>
+				</ul>
+			</div>
+		</div>
 
-	<form>
-		<div>
-			<select name="select" id="udis_dolar">
-			  <option value="udis" selected>UDI's</option>
-			  <option value="dolar">Dolar</option>
-			</select>
-		</div>
-		<div>
-			<label for="start">Fecha inicio:</label>
-			<input type="date" id="start" name="date-start">			
-		</div>
-		<div>
-			<label for="end">Fecha Final:</label>
-			<input type="date" id="end" name="date-end">			
-		</div>
-		<a href="#" onclick="get_data_banxico()">Mostrar datos</a>
-	</form>
-
-	<div>
-		<ul>
-			<li>Datos: <span id="result">[]</span></li>
-			<li>Promedio: <span id="avg">0</span></li>
-			<li>Mínimp: <span id="min">0</span></li>
-			<li>Máximo: <span id="max">0</span></li>
-		</ul>
+		<div id="chart_div"></div>		
 	</div>
-
-	<div id="chart_div"></div>
 
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
