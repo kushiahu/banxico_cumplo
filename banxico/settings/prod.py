@@ -5,4 +5,4 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['198.199.73.58']
 
-STATIC_ROOT = BASE_DIR.parent.parent / 'static'
+STATIC_ROOT = BASE_DIR.parent / 'static'
