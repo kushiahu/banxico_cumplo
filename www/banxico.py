@@ -12,9 +12,9 @@ class Banxico:
 		self.__error = 'Algo salió mal con la solicitud. Revise el token, la identificación de la serie o el formato de fecha'
 
 	def __get_only_data(self, data: dict) -> list:
-		return [d['dato'] for d in data['bmx']['series'][0]['datos']]
+		return [float(d['dato']) for d in data['bmx']['series'][0]['datos']]
 
-	def get_serie_by_range_date(self, serie: str, init_date: str, end_data: str) -> list:
+	def get_serie_by_range_date(self, serie: str, init_date: str, end_date: str) -> list:
 		url_udis = f'{self.__url}/{serie}/datos/{init_date}/{end_date}'
 		response = requests.get(url_udis, headers=self.__headers, params=self.__params)
 		if response.status_code != 200:

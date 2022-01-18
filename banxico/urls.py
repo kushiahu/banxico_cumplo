@@ -20,5 +20,14 @@ from www import views
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('api_get_data/<str:serie>/<str:init_date>/<str:end_date>/', views.api_get_data_serie, name='api_get_data'),
+    # http://localhost:8000/api_get_data/SP68257/2021-12-25/2021-12-30/
     path('admin/', admin.site.urls),
 ]
+
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

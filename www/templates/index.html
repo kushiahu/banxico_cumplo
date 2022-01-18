@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,21 +10,23 @@
 
 	<form>
 		<div>
-			<select name="select">
+			<select name="select" id="udis_dolar">
 			  <option value="udis" selected>UDI's</option>
 			  <option value="dolar">Dolar</option>
 			</select>
 		</div>
 		<div>
 			<label for="start">Fecha inicio:</label>
-			<input type="date" id="start" name="trip-start">			
+			<input type="date" id="start" name="date-start">			
 		</div>
 		<div>
 			<label for="end">Fecha Final:</label>
-			<input type="date" id="end" name="trip-end">			
+			<input type="date" id="end" name="date-end">			
 		</div>
-		<a href="#">Mostrar datos</a>
+		<a href="#" onclick="get_data_banxico()">Mostrar datos</a>
 	</form>
+
+	<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 
 </body>
 </html>
