@@ -17,7 +17,7 @@ class Banxico:
 		return [float(d['dato']) for d in data['bmx']['series'][0]['datos']]
 
 	def __get_list_data(self, data: dict) -> list:
-		return [[d['fecha'], d['dato']] for d in data['bmx']['series'][0]['datos']]
+		return [[d['fecha'], float(d['dato'])] for d in data['bmx']['series'][0]['datos']]
 
 	def get_serie_by_range_date(self, serie: str, init_date: str, end_date: str) -> None:
 		url_udis = f'{self.__url}/{serie}/datos/{init_date}/{end_date}'
