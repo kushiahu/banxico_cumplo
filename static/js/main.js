@@ -57,3 +57,21 @@ function show_graph(graph_data, serie) {
 	  chart.draw(data, options);
 	}
 }
+
+
+window.addEventListener('load', function () {
+	let start_date = document.getElementById('start')
+  let end_date = document.getElementById('end')
+  start_date.max = new Date().toISOString().split("T")[0];
+  end_date.max = new Date().toISOString().split("T")[0];
+})
+
+function onchange_init(e) {
+	let end_date = document.getElementById('end')
+	end_date.min = e.target.value
+}
+
+function onchange_end(e) {
+	let start_date = document.getElementById('start')
+	start_date.max = e.target.value
+}
