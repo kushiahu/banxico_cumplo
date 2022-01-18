@@ -14,12 +14,15 @@ class Banxico:
 	def __get_only_data(self, data: dict) -> list:
 		return [float(d['dato']) for d in data['bmx']['series'][0]['datos']]
 
+	def __get_list_data(self, data: dict) -> list:
+		return list(data['bmx']['series'][0]['datos'][0].items())
+
 	def get_serie_by_range_date(self, serie: str, init_date: str, end_date: str) -> list:
 		url_udis = f'{self.__url}/{serie}/datos/{init_date}/{end_date}'
 		response = requests.get(url_udis, headers=self.__headers, params=self.__params)
 		if response.status_code != 200:
 			raise RequestException(f'{self.__error} >> Status code: {response.status_code}')		
-		return self.__get_only_data(response.json())
+		return self.__get_only_data(response.json()), self.__get_list_data(response.json())
 
 
 
