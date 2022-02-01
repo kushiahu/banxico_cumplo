@@ -16,7 +16,7 @@ cumplir las siguientes condiciones:
 
 ## Link de deploy para visualizar su funcionamiento
 
-Link: [http://198.199.73.58/](http://198.199.73.58/)
+Link: [Demo](http://devkushiahu.pythonanywhere.com/)
 
 ## Instalación local
 
